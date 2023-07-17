@@ -102,7 +102,7 @@ function deleteGood(arr, item) {
 console.log(deleteGood(shoppingList, "shampoo"));
 //------------------------------
 
-let blockList = document.querySelector('#btn-list');
+let blockList = document.querySelector('#btns-list');
 let btnsList = document.querySelectorAll('a[data-bought]');
 
 btnsList.forEach(item => {
@@ -110,5 +110,16 @@ btnsList.forEach(item => {
         let getList = item.getAttribute('data-bought');
         let nameList = item.getAttribute('status');
         blockList.insertAdjacentHTML('beforeend', `<p>List ${nameList}: ${getList}</p>`);
+    });
+});
+
+let blockListNotBought = document.querySelector('#btns-list');
+let btnsListNotBought = document.querySelectorAll('a[data-not_bought]');
+
+btnsListNotBought.forEach(item => {
+    item.addEventListener('click', function() {
+        let getListNotBought = item.getAttribute('data-not_bought');
+        let nameListNotBought = item.getAttribute('status');
+        blockListNotBought.insertAdjacentHTML('beforeend', `<p>List ${nameListNotBought}: ${getListNotBought}</p>`);
     });
 });
